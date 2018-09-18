@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ .weather-thunderstorm {
+ 		background-color: black;
+ 		color: white;
+ }
+
+ .weather-drizzle {
+ 		background-color: aqua;
+ 		color: black;
+ }
+
+ .weather-rain {
+ 		background-color: blue;
+ 		color: white;
+ }
+
+ .weather-snow {
+ 		background-color: fuchsia;
+ 		color: white;
+ }
+
+ .weather-atmosphere {
+ 		background-color: olive;
+ 		color: black;
+ }
+
+ .weather-clear {
+ 		background-color: yellow;
+ 		color: black;
+ }
+
+ .weather-clouds {
+ 		background-color: gray;
+ 		color: black;
+ }
+
+
