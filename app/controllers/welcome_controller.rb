@@ -26,6 +26,12 @@ class WelcomeController < ApplicationController
 	        @error = response['message']
 	      end
 	    end
+
+		if params[:zipcode].present?
+			airresponse = HTTParty.get("http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=#{params[:zipcode]}&distance=25&API_KEY=#{ENV['airnow_api_key']}")
+			@air_quality = airresponse[0]['Category']['Name']
+		end
+
 	  end
 
 
@@ -37,6 +43,9 @@ class WelcomeController < ApplicationController
     @weather_words = response['weather'][0]['description']
     @cloudiness = response['clouds']['all']
     @windiness = response['wind']['speed']
+
+    airresponse = HTTParty.get("http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=85719&distance=25&API_KEY=#{ENV['airnow_api_key']}")
+    @air_quality = airresponse[0]['Category']['Name']
   end
 
   private
