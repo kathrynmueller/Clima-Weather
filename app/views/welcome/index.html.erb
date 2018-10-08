@@ -1,68 +1,81 @@
 <nav class="navbar navbar-inverse">
  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Clima Weather</a>
+      <p><span class="brand">Clima</span>Easy weather and air quality info</p>
     </div>
   </div>
 </nav>
 
-<div class="row">
-  <div class="col-md-3">
-  	<div class="well">
-  		<h1>Past Searches</h1>
-  		<ul>
-  			<% if cookies[:past_searches].present? %>
-		  		<% cookies[:past_searches].split(',').each do |zipcode| %>
-		  		<li> <%= link_to zipcode, root_path(zipcode: zipcode) %> </li>
-		  		<% end %>
-	  		<% end %>
-  		</ul>
-  	</div>
-  </div>
+<div class="container weather-<%= @weather_div %>">
 
+  <div class="row">
 
-  <div class="col-md-6">
-    <div class="well">
-      <h1>Look Up Your Local Forecast</h1>
-      <p>What's the weather like in your city?</p>
-      <div>
-        <%= form_tag index_path do %>
-        <%= text_field_tag :zipcode, nil, placeholder: "zipcode", class: "form-control" %><br/>
-        <%= submit_tag "Check Weather", class: "btn btn-primary" %>
-      <% end %>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well">
+        <h1>Look Up Your Weather</h1>
+        <p>What's the weather like in your city?</p>
+          <%= form_tag index_path do %>
+          <%= text_field_tag :zipcode, nil, placeholder: "zip code", class: "zipcode"%>
+          <%= submit_tag "Check the Weather", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <div class="well">
+        <% if @location != nil && @location != "" && (@error == "" || @error == nil) %>
+          <h1><%= @location %></h1>
+          <div class="row">
+            <div class="col-md-7">
+              <p><em>Current weather:</em></p>
+              <p>Temperature: <%= @temp %>° F</p>
+              <p>Cloud Cover: <%= @cloudiness %>%</p>
+              <p>Wind: <%= @windiness %> mph</p>
+              <p>Air Quality: <%= @air_quality %></p>
+<!--               <p>Weather-div: <%= @weather_div %></p> -->
+            </div>
+            <div class="col-md-5">
+              <p>
+                <%= @weather_words%>
+                <img src="http://openweathermap.org/img/w/<%= @weather_icon%>.png">
+              </p>
+            </div>
+          </div>
+          <% elsif @status == "404" %>
+            <p>Error:<%= @error %>. Please Try Again.</p>
+          <% else %>
+            <br>
+            <p>Enter a zip code above to check the weather!</p>
+            <br>
+            <p>You'll get current weather conditions, courtesy of <a href = 
+              "https://openweathermap.org/" target="blank">Open Weather Map,</a> and current air quality thanks to the EPA's <a href = "https://airnow.gov/" target="blank">Air Now API.*</a></p>
+              <p>*Air quality data not available for all locations.</p>
+          <% end %>
+          <br>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="well">
+        <h1 style="text-align: right">Recent Searches</h1>
+        <ul>
+          <% if cookies[:past_searches].present? %>
+            <% cookies[:past_searches].split(',').each do |zipcode| %>
+            <li> <%= link_to zipcode, root_path(zipcode: zipcode) %> </li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
     </div>
+
   </div>
+
+
 </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="well weather-<%= @weather_div %>">
-      <!-- Bring in the instance variable from our controller to display on our index page. -->
-      <!-- Check to make sure @location is not empty or nil and that the API did not return an error -->
-      <% if @location != nil && @location != "" && (@error == "" || @error == nil) %>
-        <h1>Forecast for <%= @location %></h1>
-        <div class="row">
-          <div class="col-md-7">
-            <p><em>What's the weather like?</em></p>
-            <p>Temperature is:<%= @temp %>° F</p>
-            <p>Cloud Cover:<%= @cloudiness %>%</p>
-            <p>Wind:<%= @windiness %> mph</p>
-            <p>Air Quality:<%= @air_quality %></p>
-            <p>Weather-div:<%= @weather_div %></p>
-          </div>
-          <div class="col-md-5">
-            <p>
-              <%= @weather_words%>
-              <img src="http://openweathermap.org/img/w/<%= @weather_icon%>.png">
-            </p>
-          </div>
-        </div>
-        <% elsif @status == "404" %>
-          <p>Error:<%= @error %>. Please Try Again.</p>
-        <% else %>
-          <p>Enter a zip code to check the weather!</p>
-        <% end %>
-    </div>
-  </div>
-</div>
+<footer>
+  <p>&copy;2018 Kathryn Mueller
+  <br>
+  <a href="https://kathrynmueller.github.io/" target="blank">Portfolio site</a></p>
+  <p>All images courtesy of <a href="https://commons.wikimedia.org/" target="blank">Wikimedia Commons</a></p>
+</footer>

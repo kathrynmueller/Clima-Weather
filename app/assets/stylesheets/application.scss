@@ -15,39 +15,109 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+	background-color: #1b1c1c;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	padding-top: 20px;
+}
+
+.brand {
+	font-family: 'Baloo Bhaijaan', cursive;
+	font-size: 85px;
+	/*color: white;*/
+	background: -webkit-linear-gradient(#4992b2, #FFF);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	margin: 30px;
+}
+
+.container {
+	margin-top: 0;
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/ff/Black-and-white-sky-clouds-cloudy_%2824029427960%29.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.move-right {
+	text-align: right;
+}
+
+.zipcode {
+	padding: 5px;
+	border-radius: 5px;
+	border: gray 1px solid;
+}
+
+.btn-primary {
+	margin-left: 10px;
+}
+
+ul {
+	list-style-type: none;
+	list-style-position: inside; 
+	padding-left: 0;
+	text-align: right;
+}
+
  .weather-thunderstorm {
- 		background-color: black;
- 		color: white;
+ 		background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4b/Lightning3.jpg");
+ 		background-size: 100%;
+ 		background-color: gray;
+ 		color: black;
  }
 
  .weather-drizzle {
- 		background-color: aqua;
+ 		background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/23/Light_rain_-_panoramio.jpg");	
+ 		background-size: 100%;
+ 		background-color: gray;
  		color: black;
  }
 
  .weather-rain {
- 		background-color: blue;
- 		color: white;
+ 		background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/74/Refraction_of_Golden_Gate_Bridge_in_rain_droplets_1.jpg");
+ 		background-size: 100%;
+ 		background-color: gray;
+ 		color: black;
  }
 
  .weather-snow {
- 		background-color: fuchsia;
+  		background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/72/Snow_Scene_at_Shipka_Pass_1.JPG");
+ 		background-size: 100%;
+ 		background-color: gray;
  		color: white;
  }
 
  .weather-atmosphere {
- 		background-color: olive;
+ 		background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a3/Water_mill_Rosenm%C3%BChle_in_Lower_Saxony%2C_Germany.jpg");
+ 		background-size: 100%;
+ 		background-color: gray;
  		color: black;
  }
 
  .weather-clear {
- 		background-color: yellow;
+ 		background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/22/Alvor_Church_Cross_%2815173985610%29.jpg");
+ 		background-size: 100%;
+ 		background-color: gray;
  		color: black;
  }
 
  .weather-clouds {
+		background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fd/Cloudy_Romsdalen_and_Trolltindene%2C_M%C3%B8re_og_Romsdal%2C_Norway_in_2013_June.jpg");
+ 		background-size: 100%;
  		background-color: gray;
  		color: black;
+ }
+
+ footer {
+ 	background-color: black;
+ 	font-family: 'Open Sans', sans-serif;
+ 	color: white;
+ 	text-align: center;
+ 	padding: 20px;
  }
 
 

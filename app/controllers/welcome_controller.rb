@@ -29,11 +29,10 @@ class WelcomeController < ApplicationController
 
 		if params[:zipcode].present?
 			airresponse = HTTParty.get("http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=#{params[:zipcode]}&distance=25&API_KEY=#{ENV['airnow_api_key']}")
-			@air_quality = airresponse[0]['Category']['Name']
+				@air_quality = airresponse.dig(0, 'Category', 'Name') || "No air quality data available"
 		end
 
-	  end
-
+	end
 
   def test
     response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip=85719&units=imperial&appid=#{ENV['openweather_api_key']}")
