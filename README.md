@@ -1,24 +1,8 @@
-# README
+# Clima Weather
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clima is a web application that allows a user to find the current weather conditions and air quality for any US Zip Code.
 
-Things you may want to cover:
+Clima integrates data from the API's of [Open Weather Map](https://openweathermap.org/) and the EPA's [Air Now](https://airnow.gov/).
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##Try It Out
+Clima is [deployed on Heroku](https://katmueller-clima.herokuapp.com/)
