@@ -4,5 +4,5 @@ Clima is a web application that allows a user to find the current weather condit
 
 Clima integrates data from the API's of [Open Weather Map](https://openweathermap.org/) and the EPA's [Air Now](https://airnow.gov/).
 
-##Try It Out
+## Try It Out
 Clima is [deployed on Heroku](https://katmueller-clima.herokuapp.com/)
